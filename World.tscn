@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Planets/Planet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Background.tscn" type="PackedScene" id=4]
+[ext_resource path="res://World.gd" type="Script" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+resource_local_to_scene = true
+radius = 93.8638
+
+[node name="World" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Planet" parent="." instance=ExtResource( 1 )]
+position = Vector2( 189.343, 250.105 )
+
+[node name="CollisionShape2D" parent="Planet" index="0"]
+shape = SubResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 185.635, 97.2568 )
+current = true
+
+[node name="Player" parent="." groups=[
+"Player",
+] instance=ExtResource( 2 )]
+position = Vector2( 185.635, 97.2568 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="MeteorTimer" type="Timer" parent="."]
+
+[node name="UI" parent="." instance=ExtResource( 3 )]
+
+[node name="Background" parent="." instance=ExtResource( 4 )]
+[connection signal="game_over" from="Player" to="." method="_on_Player_game_over"]
+[connection signal="timeout" from="MeteorTimer" to="." method="_on_MeteorTimer_timeout"]
+[connection signal="pressed" from="UI/GameOver/RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="UI/GameOver/MenuButton" to="." method="_on_MenuButton_pressed"]
+[connection signal="text_entered" from="UI/GameOver/Name" to="." method="_on_Name_text_entered"]
+[connection signal="pressed" from="UI/GameOver/SubmitScoreButton" to="." method="_on_SubmitScoreButton_pressed"]
+
+[editable path="Planet"]
+
+[editable path="Player"]
+
+[editable path="UI"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/PlanetExplode.wav-bf4aee74c3fbfd308e4ae12908a86927.sample"
+
+[deps]
+
+source_file="res://ExplosionSound/PlanetExplode.wav"
+dest_files=[ "res://.import/PlanetExplode.wav-bf4aee74c3fbfd308e4ae12908a86927.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

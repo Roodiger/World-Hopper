@@ -1,0 +1,246 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Fonts/BEBAS.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Objects/MobileButton.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends CanvasLayer
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+
+
+"
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 120
+outline_size = 10
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 85
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 120
+outline_size = 10
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[node name="UI" type="CanvasLayer"]
+script = SubResource( 1 )
+
+[node name="GameOver" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.41425
+margin_top = -1.41418
+margin_right = 1.41431
+margin_bottom = -1.41418
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="GameOver"]
+modulate = Color( 0.309804, 0.309804, 0.309804, 0.819608 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -384.706
+margin_top = -266.469
+margin_right = 386.294
+margin_bottom = 258.531
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RestartButton" type="Button" parent="GameOver"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -114.002
+margin_top = 117.251
+margin_right = 116.998
+margin_bottom = 173.251
+focus_neighbour_top = NodePath("../SubmitScoreButton")
+focus_neighbour_bottom = NodePath("../MenuButton")
+custom_fonts/font = SubResource( 2 )
+text = "Restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButton" type="Button" parent="GameOver"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -114.002
+margin_top = 192.251
+margin_right = 116.998
+margin_bottom = 248.251
+focus_neighbour_top = NodePath("../RestartButton")
+focus_neighbour_bottom = NodePath("../Name")
+custom_fonts/font = SubResource( 2 )
+text = "Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="LineEdit" parent="GameOver"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -142.5
+margin_top = -16.0
+margin_right = 142.5
+margin_bottom = 24.0
+focus_neighbour_top = NodePath("../MenuButton")
+focus_neighbour_bottom = NodePath("../SubmitScoreButton")
+custom_fonts/font = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SubmitScoreButton" type="Button" parent="GameOver"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -115.5
+margin_top = 43.0
+margin_right = 115.5
+margin_bottom = 99.0
+focus_neighbour_top = NodePath("../Name")
+focus_neighbour_bottom = NodePath("../RestartButton")
+custom_fonts/font = SubResource( 2 )
+text = "Submit Score"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameLabel" type="Label" parent="GameOver"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -144.0
+margin_top = -68.0
+margin_right = 10.0
+margin_bottom = -37.0
+custom_fonts/font = SubResource( 4 )
+text = "Your Name:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="GameOver"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -270.5
+margin_top = -219.0
+margin_right = 270.5
+margin_bottom = -105.0
+custom_fonts/font = SubResource( 5 )
+text = "Game Over"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 7.0
+margin_right = 254.0
+margin_bottom = 76.0
+custom_fonts/font = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimerLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -243.0
+margin_right = 20.0
+margin_bottom = -129.0
+custom_fonts/font = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Right" type="TouchScreenButton" parent="."]
+modulate = Color( 1, 1, 1, 0.294118 )
+position = Vector2( 576.481, 1064.97 )
+rotation = 3.14159
+scale = Vector2( 8, 8 )
+normal = ExtResource( 2 )
+pressed = ExtResource( 2 )
+shape_centered = false
+passby_press = true
+action = "ui_right"
+visibility_mode = 1
+
+[node name="Left" type="TouchScreenButton" parent="."]
+modulate = Color( 1, 1, 1, 0.294118 )
+position = Vector2( 16.5649, 785.697 )
+scale = Vector2( 8, 8 )
+normal = ExtResource( 2 )
+pressed = ExtResource( 2 )
+shape_centered = false
+passby_press = true
+action = "ui_left"
+visibility_mode = 1
+
+[node name="Jump" type="TouchScreenButton" parent="."]
+modulate = Color( 1, 1, 1, 0.294118 )
+position = Vector2( 1901.24, 785.697 )
+rotation = 1.5708
+scale = Vector2( 8, 8 )
+normal = ExtResource( 2 )
+pressed = ExtResource( 2 )
+shape_centered = false
+action = "ui_up"
+visibility_mode = 1
